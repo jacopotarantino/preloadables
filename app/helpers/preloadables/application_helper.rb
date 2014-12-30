@@ -20,7 +20,7 @@ module Preloadables
     end
 
 
-    def preload_domains_meta(domains)
+    def preload_domains_meta(domains=[])
       output = ''
 
       domains.each { |domain|
@@ -31,7 +31,7 @@ module Preloadables
     end
 
 
-    def preload_assets_meta(assets)
+    def preload_assets_meta(assets=[])
       output = ''
 
       assets.each { |asset|
@@ -42,7 +42,7 @@ module Preloadables
     end
 
 
-    def prerender_pages_meta(pages)
+    def prerender_pages_meta(pages=[])
       output = ''
 
       pages.each { |page|
