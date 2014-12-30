@@ -16,7 +16,7 @@ module Preloadables
         output << prerender_pages_meta(preloadables[:pages])
       end
 
-      output
+      output.html_safe
     end
 
 
@@ -27,7 +27,7 @@ module Preloadables
         output << "<link rel=\"dns-prefetch\" href=\"#{domain}\">"
       }
 
-      output
+      output.html_safe
     end
 
 
@@ -38,7 +38,7 @@ module Preloadables
         output << "<link rel=\"prefetch\" href=\"#{asset}\">"
       }
 
-      output
+      output.html_safe
     end
 
 
@@ -49,7 +49,7 @@ module Preloadables
         output << "<link rel=\"prerender\" href=\"#{page}\">"
       }
 
-      output
+      output.html_safe
     end
 
   end
