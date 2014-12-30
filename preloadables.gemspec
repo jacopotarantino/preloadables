@@ -10,15 +10,15 @@ Gem::Specification.new do |s|
   s.authors     = ['Jack']
   s.email       = ['jack@ofspades.com']
   s.homepage    = 'https://jack.ofspades.com/rails-preloadables/'
-  s.summary     = 'A Rails view helper that outputs HTML for preloading and precacheing.'
-  s.description = 'A Rails view helper that outputs HTML for preloading and precacheing.'
+  s.summary     = 'A Rails view helper that outputs HTML meta tags for preloading and precacheing.'
+  s.description = 'Speeds up websites with preloading and precacheing.'
   s.license     = 'Creative Commons Attribution-ShareAlike'
 
   s.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency "rails", "~> 4.1.8"
+  s.add_dependency 'rails', '~> 4.0', '>= 4.0.0'
 
-  s.add_development_dependency "sqlite3"
-  s.add_development_dependency 'codeclimate-test-reporter'
+  s.add_development_dependency 'sqlite3', '~> 1.3', '>= 1.3.0'
+  s.add_development_dependency 'codeclimate-test-reporter', '~> 0.4', '>= 0.4.0'
 end
