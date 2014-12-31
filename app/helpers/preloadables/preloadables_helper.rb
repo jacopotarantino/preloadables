@@ -1,5 +1,5 @@
 module Preloadables
-  module ApplicationHelper
+  module PreloadablesHelper
 
     def preloadables_meta(preloadables)
       output = ''

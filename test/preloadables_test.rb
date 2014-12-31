@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class PreloadablesTest < ActionView::TestCase
-  include Preloadables::ApplicationHelper
+  include Preloadables::PreloadablesHelper
 
   test 'the module should be defined' do
     assert_kind_of Module, Preloadables
@@ -10,7 +10,7 @@ end
 
 
 class AllPreloadablesTest < ActionView::TestCase
-  include Preloadables::ApplicationHelper
+  include Preloadables::PreloadablesHelper
 
   test 'it renders nothing when passed an empty hash' do
     empty_hash = {}
@@ -44,7 +44,7 @@ end
 
 
 class PreloadableDomainsTest < ActionView::TestCase
-  include Preloadables::ApplicationHelper
+  include Preloadables::PreloadablesHelper
 
   test 'it renders nothing when passed an empty array' do
     empty_array = Array.new
@@ -66,7 +66,7 @@ end
 
 
 class PreloadableAssetsTest < ActionView::TestCase
-  include Preloadables::ApplicationHelper
+  include Preloadables::PreloadablesHelper
 
   test 'it renders nothing when passed an empty array' do
     empty_array = Array.new
@@ -88,7 +88,7 @@ end
 
 
 class PrerenderablePagesTest < ActionView::TestCase
-  include Preloadables::ApplicationHelper
+  include Preloadables::PreloadablesHelper
 
   test 'it renders nothing when passed an empty array' do
     empty_array = Array.new

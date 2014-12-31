@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    preloadables (1.0.1)
+    preloadables (1.0.3)
       rails (~> 4.0, >= 4.0.0)
 
 GEM
@@ -58,7 +58,7 @@ GEM
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     mime-types (2.4.3)
-    mini_portile (0.6.1)
+    mini_portile (0.6.2)
     minitest (5.5.0)
     multi_json (1.10.1)
     nokogiri (1.6.5)
