@@ -1,8 +1,10 @@
 module Preloadables
   module ApplicationHelper
 
-    def preloadables_meta(preloadables={})
+    def preloadables_meta(preloadables)
       output = ''
+
+      preloadables ||= {}
 
       unless preloadables[:domains].blank?
         output << preload_domains_meta(preloadables[:domains])
@@ -21,35 +23,23 @@ module Preloadables
 
 
     def preload_domains_meta(domains=[])
-      output = ''
+      markup = domains.collect { |domain| tag(:link, rel: 'dns-prefetch', href: domain) }
 
-      domains.each { |domain|
-        output << "<link rel=\"dns-prefetch\" href=\"#{domain}\">"
-      }
-
-      output.html_safe
+      markup.join()
     end
 
 
     def preload_assets_meta(assets=[])
-      output = ''
+      markup = assets.collect { |asset| tag(:link, rel: 'prefetch', href: asset) }
 
-      assets.each { |asset|
-        output << "<link rel=\"prefetch\" href=\"#{asset}\">"
-      }
-
-      output.html_safe
+      markup.join()
     end
 
 
     def prerender_pages_meta(pages=[])
-      output = ''
+      markup = pages.collect { |page| tag(:link, rel: 'prerender', href: page) }
 
-      pages.each { |page|
-        output << "<link rel=\"prerender\" href=\"#{page}\">"
-      }
-
-      output.html_safe
+      markup.join()
     end
 
   end

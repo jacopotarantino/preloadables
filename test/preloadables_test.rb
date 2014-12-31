@@ -17,7 +17,7 @@ class AllPreloadablesTest < ActionView::TestCase
     assert_equal '', preloadables_meta(empty_hash)
   end
 
-  test 'it renders dns prefetching meta' do
+  test 'it renders all prefetching/preloading meta' do
     preloadable_options = {
       domains: [
         'google.com',
@@ -33,9 +33,9 @@ class AllPreloadablesTest < ActionView::TestCase
       ]
     }
 
-    expected_output = '<link rel="dns-prefetch" href="google.com"><link rel="dns-prefetch" href="jack.ofspades.com">'
-    expected_output << '<link rel="prefetch" href="http://jack.ofspades.com/assets/js/application.js"><link rel="prefetch" href="/foo/bar/baz.min.css">'
-    expected_output << '<link rel="prerender" href="/page2.html"><link rel="prerender" href="https://jack.ofspades.com/contact/">'
+    expected_output = '<link rel="dns-prefetch" href="google.com" /><link rel="dns-prefetch" href="jack.ofspades.com" />'
+    expected_output << '<link rel="prefetch" href="http://jack.ofspades.com/assets/js/application.js" /><link rel="prefetch" href="/foo/bar/baz.min.css" />'
+    expected_output << '<link rel="prerender" href="/page2.html" /><link rel="prerender" href="https://jack.ofspades.com/contact/" />'
 
     assert_equal expected_output, preloadables_meta(preloadable_options)
   end
@@ -57,7 +57,7 @@ class PreloadableDomainsTest < ActionView::TestCase
       'jack.ofspades.com'
     ]
 
-    expected_output = '<link rel="dns-prefetch" href="google.com"><link rel="dns-prefetch" href="jack.ofspades.com">'
+    expected_output = '<link rel="dns-prefetch" href="google.com" /><link rel="dns-prefetch" href="jack.ofspades.com" />'
 
     assert_equal expected_output, preload_domains_meta(preloadable_options)
   end
@@ -79,7 +79,7 @@ class PreloadableAssetsTest < ActionView::TestCase
       '/foo/bar/baz.min.css'
     ]
 
-    expected_output = '<link rel="prefetch" href="http://jack.ofspades.com/assets/js/application.js"><link rel="prefetch" href="/foo/bar/baz.min.css">'
+    expected_output = '<link rel="prefetch" href="http://jack.ofspades.com/assets/js/application.js" /><link rel="prefetch" href="/foo/bar/baz.min.css" />'
 
     assert_equal expected_output, preload_assets_meta(preloadable_options)
   end
@@ -101,7 +101,7 @@ class PrerenderablePagesTest < ActionView::TestCase
       'https://jack.ofspades.com/contact/'
     ]
 
-    expected_output = '<link rel="prerender" href="/page2.html"><link rel="prerender" href="https://jack.ofspades.com/contact/">'
+    expected_output = '<link rel="prerender" href="/page2.html" /><link rel="prerender" href="https://jack.ofspades.com/contact/" />'
 
     assert_equal expected_output, prerender_pages_meta(preloadable_options)
   end
