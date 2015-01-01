@@ -23,24 +23,29 @@ module Preloadables
 
 
     def preload_domains_meta(domains=[])
-      markup = domains.collect { |domain| tag(:link, rel: 'dns-prefetch', href: domain) }
-
-      markup.join()
+      render_markup_for(domains, 'dns-prefetch')
     end
 
 
     def preload_assets_meta(assets=[])
-      markup = assets.collect { |asset| tag(:link, rel: 'prefetch', href: asset) }
-
-      markup.join()
+      render_markup_for(assets, 'prefetch')
     end
 
 
     def prerender_pages_meta(pages=[])
-      markup = pages.collect { |page| tag(:link, rel: 'prerender', href: page) }
-
-      markup.join()
+      render_markup_for(pages, 'prerender')
     end
+
+
+    private
+
+      def render_markup_for(links, type)
+        markup = links.collect { |link|
+          tag(:link, rel: type, href: link)
+        }
+
+        markup.join()
+      end
 
   end
 end
